@@ -1,0 +1,12 @@
+<div class="container d-flex justify-content-center mt-5" >
+<table id="showCart" class="table table-bordered w-50 text-center">
+    <thead></thead>
+    <tbody>
+    <tr *ngFor="let cart of data">
+        <td>{{cart.item}}</td>
+        <td>{{cart.quantity}}</td>
+    </tr>
+</tbody>
+</table>
+</div>
+<app-voice-api [item]="data"></app-voice-api>
