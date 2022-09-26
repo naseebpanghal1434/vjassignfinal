@@ -1,4 +1,4 @@
-import { Component,  } from '@angular/core';
+import { Component  } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,13 +7,13 @@ import { Component,  } from '@angular/core';
 })
 export class AppComponent  {
   title = 'vjAssign';
-  itemCart : any;
+  cart : any;
   public itemheader=["Item Name", "Item Quantity"];
   audiosrc: any;
 
   constructor(){
   }
   mydataTable(event: any){
-    this.itemCart = event;
+    this.cart = event;
   }
 }

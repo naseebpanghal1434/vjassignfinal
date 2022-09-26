@@ -2,11 +2,11 @@
 <table id="showCart" class="table table-bordered w-50 text-center">
     <thead></thead>
     <tbody>
-    <tr *ngFor="let cart of data">
-        <td>{{cart.item}}</td>
-        <td>{{cart.quantity}}</td>
+    <tr *ngFor="let item of cart">
+        <td>{{item.Name}}</td>
+        <td>{{item.Quantity}}</td>
     </tr>
 </tbody>
 </table>
 </div>
-<app-voice-api [item]="data"></app-voice-api>
+<app-voice-api [cart]="cart"></app-voice-api>

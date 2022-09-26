@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-show-items',
@@ -7,11 +6,8 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./show-items.component.css']
 })
 export class ShowItemsComponent implements OnInit {
-  @Input() public data: any;
-  @Output() dataChange = new EventEmitter();
-  // public cart: any;
-  constructor(private httpclient: HttpClient) { }
+  @Input() public cart: any;
+  constructor() { }
   ngOnInit(): void {
-    this.dataChange.emit(this.data)
   }
 }

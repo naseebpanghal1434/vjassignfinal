@@ -10,12 +10,12 @@ export class ItemsTableComponent implements OnInit {
 
   items = ['Pencil', 'Book', 'Pen', 'Shoes', 'Bag', 'Box', 'Dress', 'Eraser'];
   itemQuantity = [1, 2, 3, 4, 5];
-  selected: number = 1;
   itemName!: string;
   itemQuant!: number;
   selectItemName = 0;
   selectItemQuantity = 0;
-  public mydata: any = [];
+
+  public cart: any = [];
 
   constructor() {}
 
@@ -29,6 +29,7 @@ export class ItemsTableComponent implements OnInit {
     document.getElementById("onaddBtn")?.setAttribute("disabled", "");
   }
 
+
   //Making Next Element visible on Onchange Event
   itemSelectOnchange() {
     document.getElementById('quantSelect')!.style.visibility = 'visible';
@@ -39,22 +40,23 @@ export class ItemsTableComponent implements OnInit {
 
   //Remove item from selected items
   removeItem(i: number) {
-    this.mydata.splice(i, 1);
-    if (this.mydata.length < 8) {
+    this.cart.splice(i, 1);
+    if (this.cart.length < 8) {
       document.getElementById('inputRow')!.style.display = 'table-row';
     }
     document.getElementById("onaddBtn")?.removeAttribute("disabled");
     document.getElementById('voiceDataBtn')?.removeAttribute("disabled");
+    document.getElementById("audioPlayer")?.setAttribute("src", "");
   }
 
   //Main Method to handle add Button
-  onAdd() {
+  addItem() {
     const itemInCart = {
-      item: this.itemName,
-      quantity: this.itemQuant,
+      Name: this.itemName,
+      Quantity: this.itemQuant,
     };
-    this.mydata.push(itemInCart);
-    if (this.mydata.length >= 8) {
+    this.cart.push(itemInCart);
+    if (this.cart.length >= 8) {
       document.getElementById('inputRow')!.style.display = 'none';
     }
 
@@ -62,17 +64,19 @@ export class ItemsTableComponent implements OnInit {
     document.getElementById('addItemButton')!.style.visibility = 'hidden';
     document.getElementById("onaddBtn")?.removeAttribute("disabled");
     document.getElementById('voiceDataBtn')?.removeAttribute("disabled");
+    document.getElementById("audioPlayer")?.setAttribute("src", "");
     
-    this.itemName = '0';
-    this.itemQuant = 0;
+    this.selectItemName = 0;
+    this.selectItemQuantity = 0;
+
   }
 
   //Filling and making below ShowOrdertable visible
   showOrder() {
-    if(this.mydata.length === 0 ){
+    if(this.cart.length === 0 ){
       alert("Please select some items");
     }else{
-      this.childEvent.emit(this.mydata);
+      this.childEvent.emit(this.cart);
       document.getElementById('voiceDataBtn')!.style.visibility = 'visible';
       document.getElementById("onaddBtn")?.setAttribute("disabled", "");
     }

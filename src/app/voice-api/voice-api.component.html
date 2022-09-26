@@ -1,5 +1,7 @@
 <div class="container d-flex justify-content-center mt-5" >
-<button class="btn btn-info" id="voiceDataBtn" (click)="voiceData()">What is My Order</button>
+<button class="btn btn-info" id="voiceDataBtn" (click)="prepareTextToSpeak()">What is My Order</button>
 </div>
-<div class="container d-flex justify-content-center mt-5" id="addAudio"></div>
+<div class="container d-flex justify-content-center mt-5" id="addAudio">
+    <audio [src] = "audioSrc" autoplay id="audioPlayer"></audio>
+</div>
 

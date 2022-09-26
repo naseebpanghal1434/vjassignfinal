@@ -8,13 +8,16 @@
             </tr>
         </thead>
         <tbody>
+
             <tr id="inputRow">
+
                 <td id="itemSelect">
                     <select name="items" [(ngModel)]="itemName" [(ngModel)]="selectItemName" (change)="itemSelectOnchange()">
-                        <option [value]= 0  disabled selected>Select Item</option>
+                        <option [value]= 0 disabled selected>Select Item</option>
                         <option [value]="item" *ngFor="let item of items"> {{item}}</option>
                     </select>
                 </td>
+
                 <td id="quantSelect" >
                     <select name="itemQuant" id="itemQuant" [(ngModel)]="itemQuant" [(ngModel)]="selectItemQuantity" (change)="quantSelectOnChange()">
                         <option [value]= 0 disabled selected>Select Quantity</option>
@@ -22,13 +25,16 @@
                         </option>
                     </select>
                 </td>
+
                 <td id="addItemButton">
-                    <button class="btn btn-primary btn-sm" (click)="onAdd()">Add</button>
+                    <button class="btn btn-primary btn-sm" (click)="addItem()">Add</button>
                 </td>
+
             </tr>
-            <tr *ngFor="let data of mydata; index as i">
-                <td>{{data.item}}</td>
-                <td>{{data.quantity}}</td>
+
+            <tr *ngFor="let item of cart; index as i">
+                <td>{{item.Name}}</td>
+                <td>{{item.Quantity}}</td>
                 <td><button class="btn btn-danger btn-sm" (click)="removeItem(i)">Remove</button></td>
             </tr>
         </tbody>
