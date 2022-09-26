@@ -8,12 +8,9 @@ import { Component  } from '@angular/core';
 export class AppComponent  {
   title = 'vjAssign';
   cart : any;
-  public itemheader=["Item Name", "Item Quantity"];
-  audiosrc: any;
-
   constructor(){
   }
-  mydataTable(event: any){
+  receivedCartData(event: any){
     this.cart = event;
   }
 }
